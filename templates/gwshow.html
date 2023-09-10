@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Predictor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main1.css">
+	<link rel="stylesheet" type="text/css" href="static/css/button.css">
+<!--===============================================================================================-->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyKDPSnEkt2qAOsHYRx2LD0QUTjAXALd4&callback=showMap&libraries=&v=weekly" async></script>
+
+<script>
+	// Initialize and add the map
+function showMap() 
+{
+	var longi=document.getElementById("longi").innerText;
+	//alert(longi);
+	var lati=document.getElementById("lati").innerText;
+	//alert(lati);
+  // The location of Uluru
+  //const uluru = { lat: -25.344, lng: 131.036 };
+  const uluru = { lat: lati, lng: longi };
+  // The map, centered at Uluru
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: uluru,
+  });
+  // The marker, positioned at Uluru
+  const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+}	
+</script>
+<style> #map {height: 220px;width: 480px;} </style>
+
+
+</head>
+<body>
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+				<span class="contact100-form-title">Ground Water Messurement</span>
+
+				<div style="width: 100%;height:250px">
+				<div style="width: 45px; height: 100px; float: left;">
+					<label><b>Longitude:</b></label><h5 id="longi">{{longitude}}</h5>
+					<label><b>Latitude:</b></label><h5 id="lati">{{latitude}}</h5>
+					<label><b>Temparature:</b></label><h5 id="temp">{{temp}}</h5><br>
+					<!-- <button type="button" class="glow-on-hover" onclick="showMap();">Show-MAP</button><br> -->
+				</div>
+					<div style="margin-left: 200px; height: 100px;"><div id="map"></div></div>
+				</div>
+			
+				<div style="width: 100%;height:130px">
+					<div class="wrap-input100 validate-input">
+						{% if gwqc=="Excellent" %}
+							<h1 style="color:DarkGreen;">{{gwqc}}:Water Quality.</h1>
+							<h2 style="color:darkolivegreen;">Ground Water Quality Index value is {{gwqi}}. <br> Thank You</h2>
+						{% elif gwqc=="Good" %}
+							<h1 style="color:Green;">{{gwqc}}:Water Quality.</h1>
+							<h2 style="color:greenyellow;">Ground Water Quality Index value is {{gwqi}}. <br> Thank You</h2>
+						{% elif gwqc=="Poor" %}
+							<h1 style="color:mediumblue;">{{gwqc}}:Water Quality.</h1>
+							<h2 style="color:royalblue;">Ground Water Quality Index value is {{gwqi}}. <br> Thank You</h2>
+						{% elif gwqc=="Very-Poor" %}
+							<h1 style="color:sienna;">{{gwqc}}:Water Quality.</h1>
+							<h2 style="color:sandybrown;">Ground Water Quality Index value is {{gwqi}}. <br> Thank You</h2>
+						{% elif gwqc=="Not-Sustainable" %}
+							<h1 style="color:red;">{{gwqc}}:Water Quality.</h1>
+							<h2 style="color:orangered;">Ground Water Quality Index value is {{gwqi}}. <br> Thank You</h2>
+						{% endif %}
+						<span class="focus-input100"></span>
+					</div>
+				</div>
+
+				<div style="float: right;">
+					<a href="/"><button type="button" class="glow-on-hover">Go-Back</button></a>
+				</div>
+		</div>
+	</div>
+
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
+
+
+
+
+
+<!-- <script>
+
+	function showPosition() {
+		navigator.geolocation.getCurrentPosition(showMap);
+	}
+	
+	function showMap(position) {
+		// Get location data
+		var latlong = lati + "," + longi;
+		
+		// Set Google map source url
+		var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
+		
+		// Create and insert Google map
+		document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";
+	}
+</script>
+
+ -->
+
+
+	<!-- <div style="width: 100%; height: 100%" id="mapContainer"></div>
+				
+	<script>	
+		// Initialize the platform object:
+		var platform = new H.service.Platform({'apikey': '{{apikey}}'});
+
+		const lng = {longitude};
+		const lat = {latitude};
+
+		// Obtain the default map types from the platform object   
+		var defaultLayers = platform.createDefaultLayers();
+
+		// Instantiate (and display) a map object:
+		var map = new H.Map(document.getElementById('mapContainer'),defaultLayers.vector.normal.map,
+					{zoom: 10,center: { lat: lat, lng: lng } });
+
+		const marker = new H.map.Marker({lat: lat, lng: lng});
+		map.addObject(marker);
+	</script> -->

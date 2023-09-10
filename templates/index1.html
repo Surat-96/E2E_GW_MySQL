@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>GW Messurement</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="static/css1/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="static/css1/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="static/css1/morris.css" type="text/css"/>
+<!-- Graph CSS -->
+<link href="static/css1/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="static/js1/jquery-2.1.4.min.js"></script>
+<!-- //jQuery -->
+<link href='//fonts.googleapis.com/css1?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css1?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<link rel="stylesheet" href="static/css1/icon-font.min.css" type='text/css' />
+<!-- //lined-icons -->
+<!--js -->
+<script src="static/js1/jquery.nicescroll.js"></script>
+<script src="static/js1/scripts.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="static/js1/bootstrap.min.js"></script>
+<!-- /Bootstrap Core JavaScript -->	   
+<!-- morris JavaScript -->	
+<script src="static/js1/raphael-min.js"></script>
+<script src="static/js1/morris.js"></script>
+<!-- tables -->
+<link rel="stylesheet" type="text/css" href="static/css1/table-style.css" />
+<link rel="stylesheet" type="text/css" href="static/css1/basictable.css" />
+<script type="text/javascript" src="static/js1/jquery.basictable.min.js"></script>
+
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script>
+							var toggle = true;
+										
+							$(".sidebar-icon").click(function() {                
+							  if (toggle)
+							  {
+								$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+								$("#menu span").css({"position":"absolute"});
+							  }
+							  else
+							  {
+								$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+								setTimeout(function() {
+								  $("#menu span").css({"position":"relative"});
+								}, 400);
+							  }
+											
+											toggle = !toggle;
+										});
+							</script>
+</head> 
+
+<body>
+
+<!--start body-->
+   <div class="page-container">
+		<!--start content-inner-->
+			<div class="left-content">
+			<div class="mother-grid-inner">
+			
+					<!--header start here-->
+						<div class="header-main">
+							<div class="logo-w3-agile">
+								<h1><a href="{{ url_for('index1') }}">MESSUREMENT</a></h1>
+							</div>
+						<div class="profile_details w3l">		
+								<ul>
+									<li class="dropdown profile_details_drop">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+											<div class="profile_img">	
+												<span class="prfil-img"><img src="static/images1/User-icon.png" alt=""> </span> 
+												<div class="user-name">
+													<p>Welcome</p>
+													<span>Administrator</span>
+												</div>
+												<i class="fa fa-angle-down"></i>
+												<i class="fa fa-angle-up"></i>
+												<div class="clearfix"></div>	
+											</div>	
+										</a>
+										<ul class="dropdown-menu drp-mnu">
+											<!--<li> <a href="cngpassword1.jsp"><i class="fa fa-user"></i> Profile</a> </li> --> 
+											<a href = "/admin"><button type="submit" class="btn btn-primary"><i class="fa fa-sign-out"></i> Logout</button></a>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="clearfix"> </div>	
+						</div>
+					<!--heder end here-->
+			
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ url_for('index1') }}">Home</a><i class="fa fa-angle-right"></i></li>
+				</ol>
+				
+				<div class="four-grids">
+					<div class="col-md-4 four-grid">
+						<div class="four-agileits">
+							<div class="icon">
+								<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+							</div>
+							<div class="four-text">
+							<form action = "postmon" method = "post"><button type="submit" class="btn btn-primary">Post-Monsoon</button></form>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 four-grid">
+						<div class="four-agileinfo">
+							<div class="icon">
+								<i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>
+							</div>
+							<div class="four-text">
+							<form action = "premon" method = "post"><button type="submit" class="btn btn-primary">Pre-Monsoon</button></form>
+							</div>				
+						</div>
+					</div>
+					<div class="col-md-4 four-grid">
+						<div class="four-w3ls">
+							<div class="icon">
+								<i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>
+							</div>
+							<div class="four-text">
+							<form action = "gw" method = "post"><button type="submit" class="btn btn-primary">GW_List</button></form>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				
+				<!--copy rights start here-->
+					<div class="copyrights">
+						<p> 2022 | MESSUREMENT </p>
+					</div>	
+				<!--COPY rights end here-->
+		</div> </div>
+		<!--end content-inner-->
+	
+		<!--start content-inner-->
+			<!--start sidebar-menu-->
+				<div class="sidebar-menu">
+					<header class="logo1">
+						<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> 
+					</header>
+						<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+                           <div class="menu">
+									<ul id="menu" >
+										<li><a href="{{ url_for('index1') }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
+										<li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i>
+										<form action = "postmon" method = "post"><button type="submit" class="btn btn-primary">PostMon_Details</button></form></li>
+										<li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i>
+										<form action = "premon" method = "post"><button type="submit" class="btn btn-primary">PreMon_Details</button></form></li>
+										<li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i>
+										<form action = "gw" method = "post"><button type="submit" class="btn btn-primary">GW_Details</button></form></li>
+										
+									</ul>
+							</div>
+				</div>
+				<div class="clearfix"></div>
+			<!-- end sidebar-menu-->
+		<!--end content-inner-->
+	</div>							  
+<!--end body-->						
+							
+	
+</body>
+</html>

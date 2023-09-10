@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>GW Messurement</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Pooled Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+<!-- Bootstrap Core CSS -->
+<link href="static/css1/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="static/css1/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="static/css1/morris.css" type="text/css"/>
+<!-- Graph CSS -->
+<link href="static/css1/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="static/js1/jquery-2.1.4.min.js"></script>
+<!-- //jQuery -->
+<link href='//fonts.googleapis.com/css1?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css1?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<link rel="stylesheet" href="static/css1/icon-font.min.css" type='text/css' />
+<!-- //lined-icons -->
+<!--js -->
+<script src="static/js1/jquery.nicescroll.js"></script>
+<script src="static/js1/scripts.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="static/js1/bootstrap.min.js"></script>
+<!-- /Bootstrap Core JavaScript -->	   
+<!-- morris JavaScript -->	
+<script src="static/js1/raphael-min.js"></script>
+<script src="static/js1/morris.js"></script>
+<!-- tables -->
+<link rel="stylesheet" type="text/css" href="static/css1/table-style.css" />
+<link rel="stylesheet" type="text/css" href="static/css1/basictable.css" />
+<script type="text/javascript" src="static/js1/jquery.basictable.min.js"></script>
+
+<!-- tables Manage-->
+<link href="static/CSS2/buttons.bootstrap4.min.css" rel='stylesheet' />
+<link href="static/CSS2/jquery.dataTables.min.css" rel='stylesheet'/>
+
+<script src="static/JS2/jQuery-1.12.4.js"></script>
+<script src="static/JS2/jquery.dataTables.min.js"></script>
+<script src="static/JS2/dataTables.buttons.min.js"></script>
+<script src="static/JS2/buttons.flash.min.js"></script>
+<script src="static/AJAX2/jszip.min.js"></script>
+<script src="static/AJAX2/pdfmake.min.js"></script>
+<script src="static/AJAX2/vfs_fonts.js"></script>
+<script src="static/JS2/buttons.html5.min.js"></script>
+<script src="static/JS2/buttons.print.min.js"></script>
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script>
+							var toggle = true;
+										
+							$(".sidebar-icon").click(function() {                
+							  if (toggle)
+							  {
+								$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+								$("#menu span").css({"position":"absolute"});
+							  }
+							  else
+							  {
+								$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+								setTimeout(function() {
+								  $("#menu span").css({"position":"relative"});
+								}, 400);
+							  }
+											
+											toggle = !toggle;
+										});
+							</script>
+</head> 
+
+<body>
+
+<!--start body-->
+   <div class="page-container">
+		<!--start content-inner-->
+			<div class="left-content">
+			<div class="mother-grid-inner">
+			
+					<!--header start here-->
+						<div class="header-main">
+							<div class="logo-w3-agile">
+								<h1><a href="{{ url_for('index1') }}">MESSUREMENT</a></h1>
+							</div>
+						<div class="profile_details w3l">		
+								<ul>
+									<li class="dropdown profile_details_drop">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+											<div class="profile_img">	
+												<span class="prfil-img"><img src="static/images1/User-icon.png" alt=""> </span> 
+												<div class="user-name">
+													<p>Welcome</p>
+													<span>Administrator</span>
+												</div>
+												<i class="fa fa-angle-down"></i>
+												<i class="fa fa-angle-up"></i>
+												<div class="clearfix"></div>	
+											</div>	
+										</a>
+										<ul class="dropdown-menu drp-mnu">
+											<!--<li> <a href="cngpassword1.jsp"><i class="fa fa-user"></i> Profile</a> </li> --> 
+											<a href = "/admin"><button type="submit" class="btn btn-primary"><i class="fa fa-sign-out"></i> Logout</button></a>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="clearfix"> </div>	
+						</div>
+					<!--heder end here-->
+			
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ url_for('index1') }}">Home</a><i class="fa fa-angle-right"></i>Manage_GW_Deatils</li>
+				</ol>
+				
+
+				<!-- start tables -->
+					<div class="agile-grids">						
+					<div class="agile-tables">
+						<div class="w3l-table-info">
+							<h2>Manage GW_Det PostMonsoon</h2>
+							<table id="table1">
+								<thead>
+									<tr>
+									<th>#</th>
+									<th>Year</th>
+									<th>Season</th>
+									<th>Lat</th>
+									<th>Lon</th>
+									<th>Temp</th>
+									<th>WD</th>
+									<th>ARSE</th>
+									<th>MN</th>
+									<th>FE</th>
+									<th>CA</th>
+									<th>GWQI</th>
+									<th>GWQC</th>
+									</tr>
+								</thead>
+								<tbody>
+								{% for k in range(len): %}
+								<tr>
+									<td>{{ list[k].id }}</td>
+									<td>{{ list[k].Year }}</td>
+									<td>{{ list[k].Season }}</td>
+									<td>{{ list[k].Lat }}</td>
+									<td>{{ list[k].Lon }}</td>
+									<td>{{ list[k].Temp }}</td>
+									<td>{{ list[k].WD }}</td>
+									<td>{{ list[k].Ars }}</td>
+									<td>{{ list[k].Mn }}</td>
+									<td>{{ list[k].Fe }}</td>
+									<td>{{ list[k].Ca }}</td>
+									<td>{{ list[k].GWQI }}</td>
+									<td>{{ list[k].GWQC }}</td>
+									</tr>
+								{% endfor %}	
+								</tbody>
+							</table>
+						</div>
+					</div></div>
+					<!-- end tables -->
+				
+				<!--copy rights start here-->
+					<div class="copyrights">
+						<p> 2022 | MESSUREMENT </p>
+					</div>	
+				<!--COPY rights end here-->
+		</div> </div>
+		<!--end content-inner-->
+		
+<script>
+$(document).ready(function() {
+    $('#table1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'pdf', 'print'
+        ]
+    } );
+} );
+</script>
+	
+		<!--start content-inner-->
+			<!--start sidebar-menu-->
+				<div class="sidebar-menu">
+					<header class="logo1">
+						<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> 
+					</header>
+						<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+                           <div class="menu">
+							<ul id="menu" >
+								<li><a href="{{ url_for('index1') }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
+								<li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i>
+								<form action = "postmon" method = "post"><button type="submit" class="btn btn-primary">PostMon_Details</button></form></li>
+								<li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i>
+								<form action = "premon" method = "post"><button type="submit" class="btn btn-primary">PreMon_Details</button></form></li>
+								<li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i>
+								<form action = "gw" method = "post"><button type="submit" class="btn btn-primary">GW_Details</button></form></li>
+								
+							</ul>
+							</div>
+				</div>
+				<div class="clearfix"></div>
+			<!-- end sidebar-menu-->
+		<!--end content-inner-->
+	</div>							  
+<!--end body-->						
+							
+	
+</body>
+</html>

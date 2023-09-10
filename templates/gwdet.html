@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Predictor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main1.css">
+	<link rel="stylesheet" type="text/css" href="static/css/popup.css">
+	
+<!--===============================================================================================-->
+
+<!-- <style>
+	h2.uppercase {text-transform: uppercase;}
+	h5.uppercase {text-transform: uppercase;}
+	span.uppercase {text-transform: uppercase;}
+
+	p.lowercase {text-transform: lowercase;}
+	p.capitalize {text-transform: capitalize;}
+</style> -->
+
+
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="{{ url_for('gwdet') }}" method="POST">
+				<span class="contact100-form-title">Ground Water Messurement</span>
+
+				<div class="wrap-input100 input100-select">
+					<h5>Year</h5>
+					<div>
+						<select class="selection-2" name="year">
+							<option>Choose Period</option>
+							<option value="2009">2009</option>
+							<option value="2010">2010</option>
+							<option value="2011">2011</option>
+							<option value="2012">2012</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<h5>Season</h5>
+					<div>
+						<select class="selection-2" name="mon">
+							<option>Choose Period</option>
+							<option value="0">Pre-Monsoon</option>
+							<option value="1">Post-Monsoon</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Valid value is required">
+					<h5>Longitude</h5>
+					<input class="input100" type="text" name="long" id="long" placeholder="Enter logitude">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Latitude</h5>
+					<input class="input100" type="text" name="lati" id="lati" placeholder="Enter latitude">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Temparature</h5>
+					<input class="input100" type="text" name="temp" id="temp" placeholder="Enter temparature">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Well Depth</h5>
+					<input class="input100" type="text" name="wd" id="wd" placeholder="Enter Well Depth value ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Electrical Conductivity</h5>
+					<input class="input100" type="text" name="ec" id="ec" placeholder="Enter EC value i.e 300  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Arsenic</h5>
+					<input class="input100" type="text" name="as" id="as" placeholder="Enter Arsenic value i.e 10mg/l ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Manganese</h5>
+					<input class="input100" type="text" name="mn" id="mn" placeholder="Enter Manganese value i.e 0.05mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Insoluble Ferric Iron</h5>
+					<input class="input100" type="text" name="fe" id="fe" placeholder="Enter Ferric Iron value i.e 5mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Calcium</h5>
+					<input class="input100" type="text" name="ca" id="ca" placeholder="Enter Calcium value i.e 120mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 input100-select">
+					<h5>Which You Want Calculate/Predict</h5>
+					<div>
+						<select class="selection-2" name="calpre">
+							<option>Choose Option</option>
+							<option value="0">Calculating</option>
+							<option value="1">Predicting GWQI</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<!-- 
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Potential of Hydrogen</h5>
+					<input class="input100" type="text" name="ph" id="ph" placeholder="Enter PH value i.e 8.5 ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Dissolved Organic Carbon</h5>
+					<input class="input100" type="text" name="doc" id="doc" placeholder="Enter DOC value i.e 5mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Ammonium</h5>
+					<input class="input100" type="text" name="nh4n" id="nh4n" placeholder="Enter NH4-N value i.e 0.2mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Phosphorus</h5>
+					<input class="input100" type="text" name="po4p" id="po4p" placeholder="Enter PO4-P value i.e 0.05mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Fluoride</h5>
+					<input class="input100" type="text" name="fl" id="fl" placeholder="Enter Fluoride value i.e 1.5mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Bicarbonate</h5>
+					<input class="input100" type="text" name="hco3" id="hco3" placeholder="Enter Bicarbonate value i.e 400mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Nitrate</h5>
+					<input class="input100" type="text" name="no3" id="no3" placeholder="Enter Nitrate value i.e 10mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Sodium</h5>
+					<input class="input100" type="text" name="na" id="na" placeholder="Enter Sodium value i.e 60mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Magnesium</h5>
+					<input class="input100" type="text" name="mg" id="mg" placeholder="Enter Magnesium value i.e 30mg/l  ">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h5>Potassium</h5>
+					<input class="input100" type="text" name="k" id="k" placeholder="Enter Potassium value i.e 5.2mg/l  ">
+					<span class="focus-input100"></span>
+				</div> -->
+
+				<!-- <div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h4>Chlorine</h4>
+					<input class="input100" type="text" name="cl" id="cl" placeholder="Enter Chlorine value i.e 0.5mg/l  ">
+					<span class="focus-input100"></span>
+				</div> -->
+
+				<!-- <div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h4>Sulfate</h4>
+					<input class="input100" type="text" name="s04" id="so4" placeholder="Enter Sulfate value i.e 200mg/l  ">
+					<span class="focus-input100"></span>
+				</div> -->
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="container-contact100-form-btn">
+	<div class="wrap-contact100-form-btn">
+	<button class="open-button" onclick="openForm()">Import XLS File</button>
+	</div></div>
+
+
+	<div class="form-popup" id="myForm">
+		<form class="form-container" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" >
+		  <h2>Import</h2><br><br>
+	  
+		  <input type="file" name="file" value=""><br><br>
+
+		  <label><b>Sheet-Name</b></label>
+    	  <input type="text" name="sheet" id="sheet" required>
+	  
+		  <button type="submit" onclick="alert('If xls file then OK, otherwise 1st convert it.')" class="btn">Upload</button>
+		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+		</form>
+	  </div>
+	  
+	  <script>
+	  function openForm() {
+		document.getElementById("myForm").style.display = "block";
+	  }
+	  
+	  function closeForm() {
+		document.getElementById("myForm").style.display = "none";
+	  }
+	  </script>
+	  
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
