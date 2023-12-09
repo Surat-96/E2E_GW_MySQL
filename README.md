@@ -1,2 +1,2 @@
 # E2E_GW_MySQL
-It is an ML Project with Machine Learning Algorithm (Linear Regression, Lasso Regression, Elasticnet Regression) &amp; to visualize the data used PowerBI tool, by Implement within 2 months.
+Ground Water Quality Predict, an ML Project, purpose to predict ground water quality index in the future through input variables, where used Multiple Linear Regression, Lasso Regression, Elasticnet Regression algorithms, and Flask, to visualize the data used PowerBI tool. by Implement within 2 months.
